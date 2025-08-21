@@ -255,17 +255,14 @@ cd argocd-and-app-with-1alb
 ```bash
 kubectl apply -f .
 kubectl get ingress -w
-kubectl delete -f .
+
 ```
-
----
-
-
 
 ---
 ## 14. Delete EKS Cluster (Cleanup)
 
 ```bash
+kubectl delete -f .
 eksctl delete cluster --name my-cluster --region ap-south-1
 ```
 

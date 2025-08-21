@@ -213,19 +213,12 @@ helm list -A
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
 
----
-
-## 12. Create and Set Namespace for Your Application
-
-```bash
-git clone https://github.com/harishnshetty/argocd-and-app-with-1alb.git
-cd argocd-and-app-with-1alb
-
 
 ---
+## Argocd installation via helm chart
 Docs: https://www.eksworkshop.com/docs/automation/gitops/argocd/access_argocd Docs: https://github.com/argoproj/argo-helm
 
-## Argocd installation via helm chart
+
 
 
 ```bash
@@ -245,11 +238,21 @@ sudo apt install jq -y
 
 kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname'
 ``` -->
+
 # Username: admin
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 # Password: encrypted-password
+
+## 12. Create and Set Namespace for Your Application
+
+---
+
+```bash
+git clone https://github.com/harishnshetty/argocd-and-app-with-1alb.git
+cd argocd-and-app-with-1alb
+```
 
 ---bash
 kubectl apply -f .
@@ -258,7 +261,6 @@ kubectl delete -f .
 ```
 
 ---
-
 
 
 

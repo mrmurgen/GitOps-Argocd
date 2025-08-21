@@ -1,10 +1,11 @@
-# GitOps Project with EKS ALB Ingress Kubernetes Argocd and app 
+# GitOps Project with EKS ALB Ingress Kubernetes Argocd and app .
 ## For more project check out https://harishnshetty.github.io/projects.html
 
 This guide covers the step-by-step installation and setup process for AWS CLI, `kubectl`, `eksctl`, and `helm`, along with instructions to create and configure an EKS cluster with AWS Load Balancer Controller.
 
 ---
 
+![img alt](https://github.com/harishnshetty/GitOps-Argocd/blob/8771d231c39eb091c5dae978d5db331fa7b4c642/img.png)
 ## 1. AWS CLI Installation
 
 Refer: [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)

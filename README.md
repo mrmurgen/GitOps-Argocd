@@ -250,8 +250,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ---
 
 ```bash
-git clone 
-cd 
+git clone  https://github.com/harishnshetty/GitOps-Argocd.git
+cd GitOps-Argocd
 ```
 
 ```bash

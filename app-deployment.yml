@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iphone-deployment
+  namespace: store-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iphone
+  template:
+    metadata:
+      labels:
+        app: iphone
+    spec:
+      containers:
+        - name: iphone-container
+          image: harishnshetty/iphone:v1
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iphone-service
+  namespace: store-ns
+spec:
+  selector:
+    app: iphone
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+

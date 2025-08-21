@@ -219,8 +219,6 @@ kubectl get deployment -n kube-system aws-load-balancer-controller
 Docs: https://www.eksworkshop.com/docs/automation/gitops/argocd/access_argocd Docs: https://github.com/argoproj/argo-helm
 
 
-
-
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
@@ -254,7 +252,7 @@ git clone https://github.com/harishnshetty/argocd-and-app-with-1alb.git
 cd argocd-and-app-with-1alb
 ```
 
----bash
+```bash
 kubectl apply -f .
 kubectl get ingress -w
 kubectl delete -f .

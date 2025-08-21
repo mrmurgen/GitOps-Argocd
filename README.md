@@ -218,13 +218,9 @@ kubectl get deployment -n kube-system aws-load-balancer-controller
 ## 12. Create and Set Namespace for Your Application
 
 ```bash
-git clone 
+git clone https://github.com/harishnshetty/argocd-and-app-with-1alb.git
 cd argocd-and-app-with-1alb
 
-kubectl apply -f .
-kubectl get ingress -w
-kubectl delete -f .
-```
 
 ---
 Docs: https://www.eksworkshop.com/docs/automation/gitops/argocd/access_argocd Docs: https://github.com/argoproj/argo-helm
@@ -254,6 +250,14 @@ kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadB
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 # Password: encrypted-password
+
+---bash
+kubectl apply -f .
+kubectl get ingress -w
+kubectl delete -f .
+```
+
+---
 
 
 

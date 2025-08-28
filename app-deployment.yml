@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: iphone-container
-          image: harishnshetty/amazon:latest
+          image: mrmurgen/my-web-app:latest
           ports:
             - containerPort: 80
           resources:

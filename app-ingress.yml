@@ -4,18 +4,16 @@ metadata:
   name: store-ns-ingress
   namespace: store-ns
   annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/load-balancer-name: store-ns-alb
-    # Target Type and Listener Port
+    kubernetes.io/ingress.class: azure/application-gateway
 
+    # SSL Redirect
+    appgw.ingress.kubernetes.io/ssl-redirect: "true"
 
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+    # Hostname binding for cert
+    appgw.ingress.kubernetes.io/appgw-ssl-certificate: iphone-cert
 
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:970378220457:certificate/aad8e284-b7e2-4e0d-8426-ebaf59fafb1d # Replace with your ACM certificate ARN
-    alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
-  ingressClassName: alb
+  ingressClassName: azure/application-gateway
   rules:
     - host: iphone.harishshetty.xyz
       http:
@@ -24,11 +22,11 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: iphone-service   # Or your main store frontend
+                name: iphone-service
                 port:
                   number: 80
 
-    # 👇 Default catch-all (matches any host not listed above)
+    # 👇 Default catch-all rule
     - host: ""
       http:
         paths:
@@ -36,6 +34,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: iphone-service # or your default frontend
+                name: iphone-service
                 port:
                   number: 80

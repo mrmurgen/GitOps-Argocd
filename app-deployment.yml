@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: iphone-container
-          image: mrmurgen/devops-ingress-project:next-sample-2
+          image: harishnshetty/bug:latest
           ports:
             - containerPort: 80
           resources:
